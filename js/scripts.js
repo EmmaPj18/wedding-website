@@ -276,7 +276,7 @@ $(document).ready(function () {
 
 // Google map
 function initMaps() {
-    var iglesia = {lat: 18.448613362959783, lng: -69.9559930306625};// 18.448613362959783, -69.9559930306625 
+    var iglesia = {lat: 18.448354721069336, lng: -69.9560546875};// 18.448354721069336,-69.9560546875
     var mapIglesia = new google.maps.Map(document.getElementById('map-canvas-1'), {
         zoom: 15,
         center: iglesia,
@@ -288,7 +288,7 @@ function initMaps() {
         map: mapIglesia
     });
 
-    var fiesta = {lat: 18.481334096725785, lng: -69.9254175874525}; //18.481334096725785, -69.9254175874525
+    var fiesta = {lat: 18.48041343688965, lng: -69.92567443847656}; //18.48041343688965,-69.92567443847656
     var mapFiesta = new google.maps.Map(document.getElementById('map-canvas-2'), {
         zoom: 15,
         center: fiesta,
