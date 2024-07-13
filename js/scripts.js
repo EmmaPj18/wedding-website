@@ -184,7 +184,7 @@ $(document).ready(function () {
     });
 
     /********************** Add to Calendar **********************/
-    var myCalendar = createCalendar({
+    var ceremoniaCalendar = createCalendar({
         options: {
             class: '',
             // You can pass an ID. If you don't, one will be generated for you
@@ -192,27 +192,56 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: "Ceremonia de Bodas de Emmanuel y Mariela",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('May 16, 2025 18:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('May 16, 2025 20:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: 'Parroquia Jesús Maestro, Calle Jesús Maestro #5, Mirador Sur, Santo Domingo, Distrito Nacional, República Dominicana',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues, please contact Mr. Amit Roy at +91 9876543210."
+            description: "Estamos felices de que nos acompañes en nuestro gran día. Si tienes alguna duda o pregunta, por favor contacte con Emmanuel Polanco +1 809 430 2433."
         }
     });
 
-    $('#add-to-cal').html(myCalendar);
+    var fiestaCalendar = createCalendar({
+        options: {
+            class: '',
+            // You can pass an ID. If you don't, one will be generated for you
+            id: ''
+        },
+        data: {
+            // Event title
+            title: "Fiesta de Bodas de Emmanuel y Mariela",
+
+            // Event start date
+            start: new Date('May 16, 2025 21:00'),
+
+            // Event duration (IN MINUTES)
+            // duration: 120,
+
+            // You can also choose to set an end time
+            // If an end time is set, this will take precedence over duration
+            end: new Date('May 17, 2025 03:00'),
+
+            // Event Address
+            address: 'Club Deportivo Naco, Extension Salon Principal, Calle Salvador Sturla esq. Calle Gracita Álvarez, Ensanche Naco, Santo Domingo, Distrito Nacional, República Dominicana',
+
+            // Event Description
+            description: "Estamos felices de que nos acompañes en nuestro gran día. Si tienes alguna duda o pregunta, por favor contacte con Emmanuel Polanco +1 809 430 2433."
+        }
+    });
+
+    $('#add-to-cal-1').html(ceremoniaCalendar);
+    $('#add-to-cal-2').html(fiestaCalendar);
 
 
     /********************** RSVP **********************/
@@ -220,27 +249,29 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Just a sec!</strong> We are saving your details.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>¡Danos un segundo!</strong> Estamos guardando tus detalles.'));
 
         if (MD5($('#invite_code').val()) !== 'b0e53b10c1f55ede516b240036b88f40'
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
-        } else {
-            $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
-                .done(function (data) {
-                    console.log(data);
-                    if (data.result === "error") {
-                        $('#alert-wrapper').html(alert_markup('danger', data.message));
-                    } else {
-                        $('#alert-wrapper').html('');
-                        $('#rsvp-modal').modal('show');
-                    }
-                })
-                .fail(function (data) {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
-        }
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Tu codigo de invitación es incorrecto.'));
+            return;
+        } 
+
+        $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+            .done(function (data) {
+                console.log(data);
+                if (data.result === "error") {
+                    $('#alert-wrapper').html(alert_markup('danger', data.message));
+                } else {
+                    $('#alert-wrapper').html('');
+                    $('#rsvp-modal').modal('show');
+                }
+            })
+            .fail(function (data) {
+                console.error(data);
+                $('#alert-wrapper').html(alert_markup('danger', '<strong>Disculpe!</strong> Tenemos un problema con el servidor. '));
+            });
+        
     });
 
 });
