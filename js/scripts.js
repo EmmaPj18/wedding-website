@@ -276,28 +276,27 @@ $(document).ready(function () {
 
 // Google map
 function initMaps() {
-    var iglesia = {lat: 18.448354721069336, lng: -69.9560546875};// 18.448354721069336,-69.9560546875
-    var mapIglesia = new google.maps.Map(document.getElementById('map-canvas-1'), {
+    var ceremonyLocation = {lat: 18.448354721069336, lng: -69.9560546875};// 18.448354721069336,-69.9560546875
+
+    initMap(ceremonyLocation, document.getElementById('map-canvas-1'), "b74a308dd3e23b62");
+
+    var partyLocation = {lat: 18.48041343688965, lng: -69.92567443847656}; //18.48041343688965,-69.92567443847656
+
+    initMap(partyLocation, document.getElementById('map-canvas-2'), "6936a287e3cb9979");
+}
+
+function initMap(location, element, mapId)
+{
+    var map = new google.maps.Map(element, {
         zoom: 15,
-        center: iglesia,
-        scrollwheel: false
+        center: location,
+        scrollwheel: false,
+        mapId: mapId
     });
 
-    var markerIglesia = new google.maps.Marker({
-        position: iglesia,
-        map: mapIglesia
-    });
-
-    var fiesta = {lat: 18.48041343688965, lng: -69.92567443847656}; //18.48041343688965,-69.92567443847656
-    var mapFiesta = new google.maps.Map(document.getElementById('map-canvas-2'), {
-        zoom: 15,
-        center: fiesta,
-        scrollwheel: false
-    });
-
-    var marker = new google.maps.Marker({
-        position: fiesta,
-        map: mapFiesta
+    var marker = new google.maps.marker.AdvancedMarkerElement({
+        position: location,
+        map: map
     });
 }
 
