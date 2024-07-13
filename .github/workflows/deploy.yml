@@ -1,4 +1,4 @@
-name: NodeJS with Gulp
+name: Deploy Wedding to Github Pages
 
 on:
   # Runs on pushes targeting the default branch
