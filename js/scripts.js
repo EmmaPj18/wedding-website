@@ -253,7 +253,7 @@ $(document).ready(function () {
             return;
         } 
 
-        $.post('https://script.google.com/macros/s/AKfycbyo0rEknln8LedEP3bkONsfOh776IR5lFidLhJFQ6jdvRiH4dKvHZmtoIybvnxpxYr2cA/exec', data)
+        $.post('https://script.google.com/macros/s/AKfycby-CUHO4jHnE0i1MtR2sSnOObYI_45aVgs3bx2I5i6wzWkPqKDtv9kqlqKQdjmj8huwEg/exec', data)
             .done(function (data) {
                 console.log(data);
                 if (data.result === "error") {
