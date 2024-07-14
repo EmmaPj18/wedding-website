@@ -187,6 +187,8 @@ $(document).ready(function () {
             id: ''
         },
         data: {
+            text: "Agregar Ceremonia al Calendario",
+
             // Event title
             title: "Ceremonia de Bodas de Emmanuel y Mariela",
 
@@ -215,6 +217,7 @@ $(document).ready(function () {
             id: ''
         },
         data: {
+            text: "Agregar Fiesta al Calendario",
             // Event title
             title: "Fiesta de Bodas de Emmanuel y Mariela",
 
@@ -229,7 +232,7 @@ $(document).ready(function () {
             end: new Date('May 17, 2025 03:00'),
 
             // Event Address
-            address: 'Club Deportivo Naco, Extension Salon Principal, Calle Salvador Sturla esq. Calle Gracita Álvarez, Ensanche Naco, Santo Domingo, Distrito Nacional, República Dominicana',
+            address: 'Club Deportivo Naco, Calle Salvador Sturla esq. Calle Gracita Álvarez, Ensanche Naco, Santo Domingo, Distrito Nacional, República Dominicana',
 
             // Event Description
             description: "Estamos felices de que nos acompañes en nuestro gran día. Si tienes alguna duda o pregunta, por favor contacte con Emmanuel Polanco +1 809 430 2433."
