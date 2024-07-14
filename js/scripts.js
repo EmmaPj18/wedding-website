@@ -120,7 +120,7 @@ $(document).ready(function () {
 
     $(function () {
 
-        $('a[href*=#]:not([href=#])').click(function () {
+        $('a[href*="#"]:not([href="#"])').on("click", function () {
             if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
 
                 var target = $(this.hash);
@@ -243,34 +243,52 @@ $(document).ready(function () {
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
         e.preventDefault();
-        var data = $(this).serialize();
+        var request = {};
+
+        $.each($('#rsvp-form').serializeArray(), function(_, kv) {
+            request[kv.name] = kv.value;
+        });
 
         var inviteCodeList = ['ce8c44579760ac21ba81cd92dcc935bb', '900bb496a89324f5bffec9f58fd2959a', 'c23f994dfb40c85fe20c907f975f5c92' ];
 
         $('#alert-wrapper').html(alert_markup('info', '<strong>¡Danos un segundo!</strong> Estamos guardando tus detalles.'));
 
-        var md5InviteCode = MD5($('#invite_code').val());
+        var md5InviteCode = MD5(request.invite_code);
 
         if (!inviteCodeList.includes(md5InviteCode)) {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Tu codigo de invitación es incorrecto.'));
             return;
-        } 
+        }
 
-        $.post('https://script.google.com/macros/library/d/1S0xhn_FoZpVL4pkEh2Gu1mMqcCM10vuccz2IchgwlxgmbqUFjFChY1bH/1', data)
-            .done(function (data) {
-                console.log(data);
-                if (data.result === "error") {
-                    $('#alert-wrapper').html(alert_markup('danger', data.message));
-                } else {
-                    $('#alert-wrapper').html('');
-                    $('#rsvp-modal').modal('show');
-                }
-            })
-            .fail(function (data) {
-                console.error(data);
-                $('#alert-wrapper').html(alert_markup('danger', '<strong>Disculpe!</strong> Tenemos un problema con el servidor. '));
-            });
-        
+        var url = 'https://script.google.com/macros/s/AKfycby-CUHO4jHnE0i1MtR2sSnOObYI_45aVgs3bx2I5i6wzWkPqKDtv9kqlqKQdjmj8huwEg/exec';
+
+        fetch(url, {
+            redirect: "follow",
+            method: "POST",
+            mode: 'cors',
+            body: JSON.stringify(request),
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            }
+        })
+        .then(function(response) {
+            return response.json()
+        }, function (error) {
+            throw error;
+        })
+        .then(function (data) {
+            console.log(data);
+            if (data.result === "error") {
+                $('#alert-wrapper').html(alert_markup('danger', data.message));
+            } else {
+                $('#alert-wrapper').html('');
+                $('#rsvp-modal').modal('show');
+            }
+        })
+        .catch(function (error) {
+            console.error(error);
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Disculpe!</strong> Tenemos un problema con el servidor. '));
+        });        
     });
 
 });

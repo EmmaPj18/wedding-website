@@ -52,7 +52,7 @@
           );
         } else if (js === "jquery.js") {
           document.write(
-            '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>'
+            '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"><\/script>'
           );
         }
       }
@@ -74,9 +74,9 @@
       href="node_modules/font-awesome/css/font-awesome.min.css"
       onerror="loadCssFromCDN('font-awesome.css')"
     />
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="js/vendor/modernizr.min.js"></script>
   </head>
-  < id="top">
+  <body id="top">
     <section class="hero">
       <section class="navigation">
         <header>
@@ -559,6 +559,19 @@
                   <div class="form-input-group">
                     <i class="fa fa-key"></i
                     ><input
+                      type="tel"
+                      name="phone"
+                      class=""
+                      min="0"
+                      placeholder="Teléfono o Célular"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="form-input-group">
+                    <i class="fa fa-key"></i
+                    ><input
                       type="number"
                       name="invite_code"
                       id="invite_code"
@@ -596,7 +609,7 @@
       </div>
     </footer>
     <script
-      src="js/vendor/jquery-1.11.2.min.js"
+      src="js/vendor/jquery.min.js"
       onerror="loadJsFromCDN('jquery.js')"
     ></script>
     <script
@@ -637,10 +650,6 @@
       );
       ga("create", "UA-46465113-4", "auto");
       ga("send", "pageview");
-    </script>
-    <script>
-      console.log(MD5('26091997'));
-      console.log(MD5('21111998'));
     </script>
   </body>
 </html>
