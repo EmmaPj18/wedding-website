@@ -137,7 +137,6 @@
             <p>
               La fecha es el 16 de Mayo del 2025, y deseamos que puedas ser parte de esta celebración.
             </p>
-            <div class="share-bar"></div>
           </div>
         </div>
       </div>
@@ -268,7 +267,8 @@
                 target="_blank"
                 >#MarielaAndEmmanuel</a
               >
-            </p>
+              <div class="share-bar"></div>
+            </p>            
           </div>
         </div>
         <div class="row section-border wp7">
@@ -504,10 +504,20 @@
                 Si desea apoyarnos con algun regalo, puede utilizar cualquiera de estas listas de regalo que les presentamos a continuación.
                 <strong>Para cualquier informacion adicional, por favor contactarnos directamente.</strong>
               </p>
-              <h5>Centro Cuesta</h5>
-              <a href="#">Url lista de regalo cuesta</a>
-              <h5>Amazon</h5>
-              <a href="#">Url lista de regalo amazon</a>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-12 col-xs-12 text-center align-self-center">
+                <a href="#" target="_blank">
+                  <img height="100px" src="img/cuesta-logo.jpeg"/>
+                  <h5>Casa Cuesta</h5>
+                </a>
+              </div>
+              <div class="col-md-3 col-sm-12 col-xs-12 text-center align-self-center">
+                <a href="#" target="_blank">
+                  <img height="100px" src="img/amazon_logo.jpg"/>
+                  <h5>Amazon</h5>
+                </a>
+              </div>
             </div>
           </div>
           <div class="col-md-6 col-sm-12 col-xs-12 rightcol">
@@ -519,13 +529,27 @@
               </p>
               <h5>Banco Popular</h5>
               <ul>
-                <li><strong>Numero de Cuenta: </strong><span id="account-1">828190231 </span> <button class="btn btn-link" onclick="copyToClipboard('account-1')"><i class="fa fa-clipboard"></i></button></li>
+                <li><strong>Numero de Cuenta: </strong><span id="account-popular">8311559383</span> <button class="btn btn-link" onclick="copyToClipboard('account-popular')"><i class="fa fa-clipboard"></i></button></li>
                 <li><strong>Nombre Titular: </strong>Emmanuel Polanco y/o Mariela Nouel</li>
+                <li><strong>Tipo de cuenta: </strong>Ahorros</li>
+                <li><strong>Cédula: </strong><span id="cedula-popular">40225553375</span> <button class="btn btn-link" onclick="copyToClipboard('cedula-popular')"><i class="fa fa-clipboard"></i></button></li>
               </ul>
               <h5>Banco BHD</h5>
               <ul>
-                <li><strong>Numero de Cuenta: </strong><span id="account-2">34295740014 </span><button class="btn btn-link" onclick="copyToClipboard('account-2')"><i class="fa fa-clipboard"></i></button></li>
+                <li><strong>Numero de Cuenta: </strong><span id="account-bhd">34295740014</span><button class="btn btn-link" onclick="copyToClipboard('account-bhd')"><i class="fa fa-clipboard"></i></button></li>
                 <li><strong>Nombre Titular: </strong>Emmanuel Polanco y/o Mariela Nouel</li>
+                <li><strong>Tipo de cuenta: </strong>Ahorros</li>
+                <li><strong>Cédula: </strong><span id="cedula-bhd">40225553375</span> <button class="btn btn-link" onclick="copyToClipboard('cedula-bhd')"><i class="fa fa-clipboard"></i></button></li>
+              </ul>
+              <h5>Wise</h5>
+              <h6>Si desean pueden usar el siguiente link de pago <a href="https://wise.com/pay/me/emmanuelp523" target="_blank">https://wise.com/pay/me/emmanuelp523</a> o realizar un wire transfer desde una cuenta de USA</h6>
+              <ul>
+                <li><strong>Account number: </strong><span id="account-wise">8311559383</span><button class="btn btn-link" onclick="copyToClipboard('account-wise')"><i class="fa fa-clipboard"></i></button></li>
+                <li><strong>Account holder: </strong>Emmanuel Polanco Jimenez</li>
+                <li><strong>ACH and Wire routing number: </strong><span id="wise-routing">026073150</span><button class="btn btn-link" onclick="copyToClipboard('wise-routing')"><i class="fa fa-clipboard"></i></button></li>
+                <li><strong>Account Type: </strong>Corriente (Checking)</li>
+                <li><strong>Bank Name: </strong>Community Federal Savings Bank</li>
+                <li><strong>Bank Address: </strong>89-16 Jamaica Ave, Woodhaven NY 11421, United States</li>
               </ul>
             </div>
           </div>
@@ -565,7 +589,7 @@
           <div class="col-md-6 col-md-offset-3">
             <h3>¿Qué estas esperando?</h3>
             <p>
-              Estariamos muy agradecidos si pudiera confirmar su asistencia antes del 1ro de Enero del 2025
+              Estariamos muy agradecidos si pudiera confirmar su asistencia
             </p>
             <form id="rsvp-form" class="rsvp-form" action="" method="POST">
               <div class="row">
